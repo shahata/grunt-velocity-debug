@@ -1,6 +1,6 @@
 /*
  * grunt-velocity-debug
- * 
+ *
  *
  * Copyright (c) 2014 Shahar Talmi
  * Licensed under the MIT license.
@@ -9,19 +9,9 @@
 'use strict';
 
 module.exports = function (grunt) {
-
-  // Please see the Grunt documentation for more information regarding task
-  // creation: http://gruntjs.com/creating-tasks
-
   grunt.registerMultiTask('velocity_debug', 'The best Grunt plugin ever.', function () {
+    var options = this.options({});
 
-    // Merge task-specific and/or target-specific options with these defaults.
-    var options = this.options({
-      punctuation: '.',
-      separator: ', '
-    });
-
-    // Iterate over all specified file groups.
     this.files.forEach(function (file) {
       // Concat specified files.
       var src = file.src.filter(function (filepath) {
@@ -35,15 +25,15 @@ module.exports = function (grunt) {
       }).map(function (filepath) {
         // Read file source.
         return grunt.file.read(filepath);
-      }).join(grunt.util.normalizelf(options.separator));
+      }).join();
 
-      // Handle options.
-      src += options.punctuation;
+      grunt.file.recurse(options.debug, function (filepath) {
+        filepath = filepath.replace(options.debug+'/', '');
+        src = src.replace('"' + filepath + '"', '"#if(${debug})' + (options.prefix || options.debug) + '/#{end}' + filepath + '"');
+      });
 
-      // Write the destination file.
       grunt.file.write(file.dest, src);
 
-      // Print a success message.
       grunt.log.writeln('File "' + file.dest + '" created.');
     });
   });

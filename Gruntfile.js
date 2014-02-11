@@ -1,6 +1,6 @@
 /*
  * grunt-velocity-debug
- * 
+ *
  *
  * Copyright (c) 2014 Shahar Talmi
  * Licensed under the MIT license.
@@ -35,19 +35,15 @@ module.exports = function (grunt) {
     velocity_debug: {
       default_options: {
         options: {
+          debug: 'test/fixtures',
+          prefix: 'concat'
         },
-        files: {
-          'tmp/default_options': ['test/fixtures/testing', 'test/fixtures/123']
-        }
-      },
-      custom_options: {
-        options: {
-          separator: ': ',
-          punctuation: ' !!!'
-        },
-        files: {
-          'tmp/custom_options': ['test/fixtures/testing', 'test/fixtures/123']
-        }
+        files: [{
+          expand: true,
+          cwd: 'test/fixtures',
+          src: '*.vm',
+          dest: 'tmp',
+        }]
       }
     },
 
