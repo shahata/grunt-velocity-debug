@@ -17,14 +17,14 @@ Once the plugin has been installed, it may be enabled inside your Gruntfile with
 grunt.loadNpmTasks('grunt-velocity-debug');
 ```
 
-## The "velocity_debug" task
+## The "velocityDebug" task
 
 ### Overview
-In your project's Gruntfile, add a section named `velocity_debug` to the data object passed into `grunt.initConfig()`.
+In your project's Gruntfile, add a section named `velocityDebug` to the data object passed into `grunt.initConfig()`.
 
 ```js
 grunt.initConfig({
-  velocity_debug: {
+  velocityDebug: {
     options: {
       // Task-specific options go here.
     },
@@ -56,7 +56,7 @@ In this example, the default options are used to do something with whatever. So 
 
 ```js
 grunt.initConfig({
-  velocity_debug: {
+  velocityDebug: {
     options: {},
     files: {
       'dest/default_options': ['src/testing', 'src/123'],
@@ -70,7 +70,7 @@ In this example, custom options are used to do something else with whatever else
 
 ```js
 grunt.initConfig({
-  velocity_debug: {
+  velocityDebug: {
     options: {
       separator: ': ',
       punctuation: ' !!!',
