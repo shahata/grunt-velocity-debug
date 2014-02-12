@@ -27,8 +27,7 @@ module.exports = function (grunt) {
         return grunt.file.read(filepath);
       }).join();
 
-      grunt.file.recurse(options.debug, function (filepath) {
-        filepath = filepath.replace(options.debug+'/', '');
+      grunt.file.expand({cwd: options.debug}, '**/*.js').forEach(function (filepath) {
         src = src.replace('"' + filepath + '"', '"#if(${debug})' + (options.prefix || options.debug) + '/#{end}' + filepath + '"');
       });
 

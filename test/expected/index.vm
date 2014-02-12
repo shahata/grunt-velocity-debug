@@ -1,2 +1,2 @@
-<script src="#if(${debug})concat/#{end}123"></script>
-<link href="#if(${debug})concat/#{end}testing" />
+<script src="#if(${debug})concat/#{end}123.js"></script>
+<link href="testing.css" />

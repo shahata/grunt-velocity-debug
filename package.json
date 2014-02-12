@@ -1,6 +1,6 @@
 {
   "name": "grunt-velocity-debug",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "The best Grunt plugin ever.",
   "repository": "git@github.com:shahata/grunt-velocity-debug.git",
   "bugs": "git@github.com:shahata/grunt-velocity-debug.gitissues",
