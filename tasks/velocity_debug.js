@@ -9,7 +9,7 @@
 'use strict';
 
 module.exports = function (grunt) {
-  grunt.registerMultiTask('velocity_debug', 'The best Grunt plugin ever.', function () {
+  grunt.registerMultiTask('velocityDebug', 'The best Grunt plugin ever.', function () {
     var options = this.options({});
 
     this.files.forEach(function (file) {
